@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Layout from "../components/Layout";
 import CardNameAndNumber from "../features/sites/cardNameAndNumber";
@@ -125,26 +125,47 @@ const SiteDetailsPage = () => {
 
   const currentList = activeTab === "materials" ? materialList : labourList;
 
-  const fetchSiteDetails = async () => {
-    try {
-      console.log("Fetching details for site ID:", siteId);
-      console.log("type of siteId:", typeof siteId);
-      const data = await getSiteById(siteId);
-      console.log("API response for site details:", data);
-      const site = data.site;
-      console.log("Site details fetched:", site.Materials);
-      setCurSiteDetail(site);
-      setLabourList(site.Labours);
-      setMaterialList(site.Materials);
-    } catch (error) {
-      console.error("Error fetching site details:", error);
-    }
-  };
+  // const fetchSiteDetails = async () => {
+  //   try {
+  //     console.log("Fetching details for site ID:", siteId);
+  //     console.log("type of siteId:", typeof siteId);
+  //     const data = await getSiteById(siteId);
+  //     console.log("API response for site details:", data);
+  //     const site = data.site;
+  //     console.log("Site details fetched:", site.Materials);
+  //     setCurSiteDetail(site);
+  //     setLabourList(site.Labours);
+  //     setMaterialList(site.Materials);
+  //   } catch (error) {
+  //     console.error("Error fetching site details:", error);
+  //   }
+  // };
+
+  const fetchSiteDetails = useCallback(async () => {
+  try {
+    console.log("Fetching details for site ID:", siteId);
+    console.log("type of siteId:", typeof siteId);
+
+    const data = await getSiteById(siteId);
+
+    console.log("API response for site details:", data);
+
+    const site = data.site;
+
+    console.log("Site details fetched:", site.Materials);
+
+    setCurSiteDetail(site);
+    setLabourList(site.Labours);
+    setMaterialList(site.Materials);
+  } catch (error) {
+    console.error("Error fetching site details:", error);
+  }
+}, [siteId]);
 
   // const PERCENTAGE = budget === 0 ? 0 : Math.round((spent / budget) * 100);
   useEffect(() => {
     fetchSiteDetails();
-  }, [siteId]);
+  }, [fetchSiteDetails]);
 
   const onEdit = (itemType, itemId) => {
     console.log("Edit", itemType, itemId);
