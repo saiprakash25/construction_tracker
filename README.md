@@ -214,7 +214,7 @@ GROQ_API_KEY=your_groq_api_key
 ## Clone Repository
 
 ```bash
-git clone https://github.com/kiranb9767/construction_tracker.git
+git clone https://github.com/saiprakash25/construction_tracker.git
 
 cd construction_tracker
 ```
@@ -367,10 +367,10 @@ without writing manual MongoDB queries.
 
 # Author
 
-Kiran Burle
+R.Saiprakash
 
 GitHub:
-https://github.com/kiranb9767
+https://github.com/saiprakash25
 
 ---
 
