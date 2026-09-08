@@ -16,7 +16,7 @@ const Login = () => {
     if (token) {
       navigate("/");
     }
-  }, []);
+  }, [navigate]);
 
   const [form, setForm] = useState({
     name: "",

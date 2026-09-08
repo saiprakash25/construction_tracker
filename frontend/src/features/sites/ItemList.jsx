@@ -95,14 +95,14 @@ const ItemList = ({ items, onEdit, onDelete, addItem, itemType }) => {
                       onClick={() => onEdit(itemType, item._id)}
                       className="bg-indigo-200 rounded-3xl p-1 hover:ring-1 hover:ring-indigo-800 hover:ring-offset-1 hover:bg-indigo-400 transition  "
                     >
-                      <img src={editIcon} className="w-4 h-4 justify-center" />
+                      <img src={editIcon} className="w-4 h-4 justify-center" alt=""/>
                     </button>
 
                     <button
                       onClick={() => onDelete(itemType, item._id)}
                       className="bg-red-200 rounded-3xl p-1 hover:ring-1 hover:ring-red-800 hover:ring-offset-1 hover:bg-red-400 transition  "
                     >
-                      <img src={deleteIcon} className="w-4 h-4 flex justify-center" />
+                      <img src={deleteIcon} className="w-4 h-4 flex justify-center" alt=""/>
                     </button>
                   </div>
                 </td>

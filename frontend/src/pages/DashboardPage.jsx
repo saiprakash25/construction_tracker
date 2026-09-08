@@ -2,18 +2,15 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import CardNameAndNumber from "../features/sites/cardNameAndNumber";
 import SiteCard from "../features/sites/SiteCard";
-import { siteData } from "../utils/Constants";
 import AddSiteModalForm from "../components/AddSiteModalForm";
 import addIcon from "../asset/add.svg";
 import chatIcon from "../asset/chat.svg";
 import ChatBox from "../features/chatBox";
-import { useNavigate } from "react-router-dom";
 
 import { createSite, getSites, deleteSite } from "../services/siteService";
 const DashboardPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [showChat, setShowChat] = useState(false);
-  const navigate = useNavigate();
   const [siteListData, setSiteListData] = useState([]);
 
   useEffect(() => {

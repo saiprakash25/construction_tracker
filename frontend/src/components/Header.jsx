@@ -13,6 +13,7 @@ const Header = () => {
       <img
         src={bg}
         className="absolute inset-0 h-full w-full object-cover opacity-[0.06]"
+        alt=""
       />
 
       <div className="relative z-10 flex items-center justify-between px-8 py-4">
